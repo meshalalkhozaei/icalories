@@ -93,13 +93,18 @@ struct ContentView: View {
                     EditButton()
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu("Sorting") {
+                    
+                    
+                    Menu {
                         ForEach(SortingType.allCases, id: \.self) { type in
                             Button(type.title) {
                                 sortingType = type
                             }
                         }
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease")
                     }
+                    
                 }
             }
             .sheet(isPresented: $showingAddView) {
